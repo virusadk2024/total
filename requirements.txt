@@ -1,0 +1,8 @@
+requests
+urllib3 
+BeautifulSoup4
+pyTelegramBotAPI
+lxml
+schedule
+expressvpn-python
+pyopenssl
