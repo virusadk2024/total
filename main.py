@@ -237,126 +237,131 @@ def main():
 #                 #     itog = itog1 * deli
 #                 #     prohod = (1 - itog) * 100
 #                 #     print(bolshe, menshe)
-                
-                    liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
-                    print(liga)
-                    
-                    date_ev_str = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['date_ev_str']
-                    print(date_ev_str)    
-                    
-                    name_ht = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_ht']
-                    print(name_ht)        
-                    
-                    name_at = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_at']
-                    print(name_at)    
-                    #     korr = 0
-                    
-                    id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
-                    print(id_ev)    
-                    print(ov_mass)
-                    print(kol_ov)
-                    print(mass_summ_ov)
-                    print(bolshe,menshe)
-                    print('------------------------------------------------------------------')
-
-#                 if g == 10:
-                    
-
-# #                 lv_mass = get_last_vstrechi(soup)
-# #                 # print(lv_mass)
-# #                 kol_lv = kol_ochnyh_vstrech(lv_mass)
-                
-# #                 # b,m = kol_set_18_5_bolshe(ov_mass)
-# #                 # blv,mlv = kol_set_18_5_bolshe(lv_mass)
-# #                 # bolshe = blv + b
-# #                 # menshe = mlv + m
-# #                 # kol = kol_lv + kol_ov
-# #                 # bk = bolshe / kol
-# #                 # mk = menshe / kol
-# #                 # raz = abs (bk - mk)
-# #                 # ver = raz * 100
-# #                 # razb = abs(bolshe - menshe)
-# #                 # summ = bolshe + menshe
-# #                 # schet = razb / kol * summ * (ver / 100)
-# #                 # pr = summ / kol
-# #                 # print('Партии на игры',pr)
-# #                 # pro = 100 / pr
-# #                 # deli = schet / pro
-# #                 # if razb < 5:
-# #                 #     pass
-# #                 # else:
-                    
-# #                 #     itog1 = pr / razb
-# #                 #     print('Партии на игры на разбежку',itog1)
-# #                 #     itog = itog1 * deli
-# #                 #     prohod = (1 - itog) * 100
-# #                 #     print(bolshe, menshe)
-                
-#                     liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
-#                     print(liga)
-                    
-#                     date_ev_str = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['date_ev_str']
-#                     print(date_ev_str)    
-                    
-#                     name_ht = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_ht']
-#                     print(name_ht)        
-                    
-#                     name_at = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_at']
-#                     print(name_at)    
-#                     #     korr = 0
-                    
-#                     id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
-#                     print(id_ev)    
-#                     print(ov_mass)
-#                     print(kol_ov)
-#                     print('Подходит для повтора:',g)
-#                     print('------------------------------------------------------------------')
-                
-#                 p1,p2 = get_ochnye_vstrechi_pob(soup,resultline,id_ev,name_ht,name_at)
-#                 # print('Очные встречи:',p1,p2)
-#                 lp1,lp2 = get_kol_pob_igr_last_vstrechi(soup)
-#                 # print('Личные встречи:',lp1,lp2)
-#                 if (kol_lv == 10) and (kol_ov == 10):
-#                     if ((abs(lp1 - lp2) >= 2) and (abs(p1-p2) >= 3)) or ((lp1 == lp2) and (p1 ==p2)):
-#                         print(date_ev_str)
-#                         print(liga)
-#                         print(name_ht,' - ',name_at)
-#                         print('Количество личных встреч:',kol_lv)
-#                         print('Победы личных встреч:',lp1,' - ',lp2)
-#                         print('Количество очных встреч:',kol_ov)
-#                         print('Победы очных встреч:',p1,' - ',p2)
-#                         list = []
-                    with open('send.txt','r') as file:
-                            
-                        for item in file.readlines():
-                            line = item.strip()
-                                # print(line)
-                            list.append(line)
-                        file.close()
-            
-
-                        if str(id_ev) in list:
-                            print('Событие уже отправлено')
-                            
-                        else:    
+                    b,m = kol_set_18_5_bolshe(ov_mass)
+                    if ((int(bolshe) > int(menshe)) and ((int(b) - int(m)) >= 10)) or ((int(bolshe) < int(menshe)) and ((int(m) - int(b)) >= 10)):
+                        liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
+                        print(liga)
                         
+                        date_ev_str = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['date_ev_str']
+                        print(date_ev_str)    
+                        
+                        name_ht = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_ht']
+                        print(name_ht)        
+                        
+                        name_at = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_at']
+                        print(name_at)    
+                        #     korr = 0
+                        
+                        id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
+                        print(id_ev)    
+                        print(ov_mass)
+                        print(kol_ov)
+                        print(mass_summ_ov)
+                        print(bolshe,menshe)
+                        print('Кол ТБ:',b)
+                        print('Кол ТМ:',m)
+                        print('------------------------------------------------------------------')
+
+    #                 if g == 10:
+                        
+
+    # #                 lv_mass = get_last_vstrechi(soup)
+    # #                 # print(lv_mass)
+    # #                 kol_lv = kol_ochnyh_vstrech(lv_mass)
+                    
+    # #                 # b,m = kol_set_18_5_bolshe(ov_mass)
+    # #                 # blv,mlv = kol_set_18_5_bolshe(lv_mass)
+    # #                 # bolshe = blv + b
+    # #                 # menshe = mlv + m
+    # #                 # kol = kol_lv + kol_ov
+    # #                 # bk = bolshe / kol
+    # #                 # mk = menshe / kol
+    # #                 # raz = abs (bk - mk)
+    # #                 # ver = raz * 100
+    # #                 # razb = abs(bolshe - menshe)
+    # #                 # summ = bolshe + menshe
+    # #                 # schet = razb / kol * summ * (ver / 100)
+    # #                 # pr = summ / kol
+    # #                 # print('Партии на игры',pr)
+    # #                 # pro = 100 / pr
+    # #                 # deli = schet / pro
+    # #                 # if razb < 5:
+    # #                 #     pass
+    # #                 # else:
+                        
+    # #                 #     itog1 = pr / razb
+    # #                 #     print('Партии на игры на разбежку',itog1)
+    # #                 #     itog = itog1 * deli
+    # #                 #     prohod = (1 - itog) * 100
+    # #                 #     print(bolshe, menshe)
+                    
+    #                     liga = resultline['reply']['sports'][tr1]['chmps'][vid]['name_ch']
+    #                     print(liga)
+                        
+    #                     date_ev_str = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['date_ev_str']
+    #                     print(date_ev_str)    
+                        
+    #                     name_ht = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_ht']
+    #                     print(name_ht)        
+                        
+    #                     name_at = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['name_at']
+    #                     print(name_at)    
+    #                     #     korr = 0
+                        
+    #                     id_ev = resultline['reply']['sports'][tr1]['chmps'][vid]['evts'][ev]['id_ev']
+    #                     print(id_ev)    
+    #                     print(ov_mass)
+    #                     print(kol_ov)
+    #                     print('Подходит для повтора:',g)
+    #                     print('------------------------------------------------------------------')
+                    
+    #                 p1,p2 = get_ochnye_vstrechi_pob(soup,resultline,id_ev,name_ht,name_at)
+    #                 # print('Очные встречи:',p1,p2)
+    #                 lp1,lp2 = get_kol_pob_igr_last_vstrechi(soup)
+    #                 # print('Личные встречи:',lp1,lp2)
+    #                 if (kol_lv == 10) and (kol_ov == 10):
+    #                     if ((abs(lp1 - lp2) >= 2) and (abs(p1-p2) >= 3)) or ((lp1 == lp2) and (p1 ==p2)):
+    #                         print(date_ev_str)
+    #                         print(liga)
+    #                         print(name_ht,' - ',name_at)
+    #                         print('Количество личных встреч:',kol_lv)
+    #                         print('Победы личных встреч:',lp1,' - ',lp2)
+    #                         print('Количество очных встреч:',kol_ov)
+    #                         print('Победы очных встреч:',p1,' - ',p2)
+    #                         list = []
+                        with open('send.txt','r') as file:
+                                
+                            for item in file.readlines():
+                                line = item.strip()
+                                    # print(line)
+                                list.append(line)
+                            file.close()
+                
+
+                            if str(id_ev) in list:
+                                print('Событие уже отправлено')
+                                
+                            else:    
                             
-                            fdate = f'\U0001F4C6 {date_ev_str} \n'
-                            fliga = f'\U0001F3D3 {liga}\n' 
-                            fteams = f'\U0001F9D1 {name_ht} - {name_at} \n' 
-                            \
-                            fkolov = f'Очные встречи:{kol_ov} \n'
-                            fbolshe = f'ТБ 19.5:{bolshe} \n'
-                            fmenshe = f'ТМ 17.5:{menshe} \n'
-            
-            
-                            mess = fdate + fliga + fteams  + fkolov + fbolshe + fmenshe
-                            with open('send.txt','a') as file:
-                                file.write(f'\n{id_ev}')            
-                                file.close()
-                            print('Событие записано в db.txt')
-                            send_telegram(mess)
-                            send_channel(mess)
+                                
+                                fdate = f'\U0001F4C6 {date_ev_str} \n'
+                                fliga = f'\U0001F3D3 {liga}\n' 
+                                fteams = f'\U0001F9D1 {name_ht} - {name_at} \n' 
+                                \
+                                fkolov = f'Очные встречи:{kol_ov} \n'
+                                fbolshe = f'Игры ТБ 19.5:{bolshe} \n'
+                                fmenshe = f'Игры ТМ 17.5:{menshe} \n'
+                                fb = f'Партии ТБ 18.5:{b} \n'
+                                fm = f'Партии ТМ 18.5:{m} \n'
+                
+                
+                                mess = fdate + fliga + fteams  + fkolov + fbolshe + fmenshe + fb + fm
+                                with open('send.txt','a') as file:
+                                    file.write(f'\n{id_ev}')            
+                                    file.close()
+                                print('Событие записано в db.txt')
+                                send_telegram(mess)
+                                send_channel(mess)
 #                 #             messchannel = fid_ev + med + fdate + fliga + fteams + frazb + fprob + fprog + fstavka + fzahod + fprob + fprov + fprorazb + fitog + fprohod + fkorrver
 #                 #         except:
 #                 #             pass
@@ -889,6 +894,56 @@ def parse(soup):
 # #                 except:
 # #                     pass
 # #     return ov_mass
+def kol_set_18_5_bolshe(ov_mass):
+    # Создаем пустой массив
+    set_mass = []
+    # Цикл переборки полученного массива
+    for game in ov_mass:
+        
+        try:
+            set = game.split(' ')[0]
+            
+            set_mass.append(set)
+        except:
+            pass
+        try:
+            set = game.split(' ')[1]
+            
+            set_mass.append(set)
+        except:
+            pass
+        try:
+            set = game.split(' ')[2]
+            
+            set_mass.append(set)
+        except:
+            pass
+        try:
+            set = game.split(' ')[3]
+            
+            set_mass.append(set)
+        except:
+            pass
+        try:
+            set = game.split(' ')[4]
+            
+            set_mass.append(set)
+        except:
+            pass
+        
+    # print(set_mass)
+    sum_point = summ_point_set_mass(set_mass)
+    b = 0
+    m = 0
+    for sum_set_point in sum_point:
+        if sum_set_point >= 19:
+            b+=1
+        if sum_set_point <= 18:
+            m+=1
+        
+    # Возвращаем полученный массив значений
+    return(b,m)
+
 def summ_point_set_mass(set_mass):
     # Создаем пустой массив
     summ_set_mass = []
